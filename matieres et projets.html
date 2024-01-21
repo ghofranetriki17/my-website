@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web Personnel</title>
+    <link rel="stylesheet" type="text/css" href="styleaccuil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body c>
+    <section class="ghofrane">
+        <div class="main-width">
+            <header>
+                <div class="logo">
+                    <img width="50px"src="images/logo.jpg">
+                </div>
+                <nav>
+                    <div class="navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-list">
+                        <li><a href="acceuil.html">accueil</a></li>
+                        <li><a href="à propos.html">à propos</a></li>
+                        <li><a><div class="dropdown">
+                            <button class="dropbtn"id="courante">portfolio</button>
+                            <div class="dropdown-content">
+                              <a href="mon parcours.html">mon parcours</a>
+                              <a href="compétences informatiques.html">compétences informatiques</a>
+                              <a href="stages réalisés.html">stages réalisés</a>
+                              <a href="evennements scientifiques.html">evennements scientifiques</a>
+                              <a href="matieres et projets.html"id="courante">matieres et projets</a>
+                              <a href="iit.html">"iit.html"</a>
+                            </div>
+                            </a>
+                          </div>
+                        </li>
+                        <li><a href="passions.html">passions</a></li>
+                        <li><a href="quiz.html">quiz</a></li>
+                        <li class="btn"><a href="contact.html">contact</a></li>
+
+
+                    </ul>
+                </nav>
+            </header>
+            
+                
+            
+               
+            
+               
+            
+               
+            
+              
+             
+            
+                
+            
+              
+            
+               
+                
+            
+               
+
+            
+              <section>
+                <h2>Matières Étudiées</h2>
+                <table>
+                  <tr>
+                    <th></th>
+                    <th>Secondaire</th>
+                    <th>Préparatoire</th>
+                    <th>IIT</th>
+                  </tr>
+                  <tr>
+                    <td>Matières</td>
+                    <td>Mathématiques, Physique, Chimie, Français, Anglais,italien, Histoire-Géographie,arabe,Éducation Islamique,
+                    Éducation Civique,philo,informatique</td>
+                    <td>Mathématiques(analyse et algebre), Physique, Chimie, Informatique(python),sta,anglais,francais, </td>
+                    <td>Prob. Et Stat.,
+                        Préparation à la certification DELF,
+                        Bases de données: Préparation à la certification Oracle 1,
+                        Comptabilité,
+                        Programmation Python,
+                        Programmation Web,
+                        Culture entrepreneuriale et management des entreprises,
+                        Math pour l'Ingénieur,
+                        Systèmes d'exploitation,
+                        Algorithmique et programmation procédurale en langage C,
+                        Systèmes Logiques,
+                        Transmission de données,
+                        Architecture des ordinateurs</td>
+                  </tr>
+                </table>
+              </section>
+            
+              <section>
+                <h2>Projets</h2>
+            
+                <div class="projects-container">
+                  <div class="project">
+                    <img src="images/projet1.jpg" alt="Projet 1">
+                    <h3>Projet 1</h3>
+                    <p>Un Projet Arduino sur la révolution des Transports Publics en Tunisie
+                        .</p>
+                    <a href="projet-archi.pptx" class="btn" onclick="toggleDetails('project1')">En savoir plus</a>
+                    
+                  </div>
+            
+                  <div class="project">
+                    <img src="images/sandri.jpg" alt="Projet 2">
+                    <h3>Projet 2</h3>
+                    <p>sandri et sandria:scene de theatre, Cendrillon, Version Homme</p>
+                    <a href="sandrivd.mp4" class="btn" onclick="toggleDetails('project2')">En savoir plus</a>
+                    <div id="project2-details" class="project-details">
+                      <p>Détails supplémentaires sur le projet 2.</p>
+                      <a href="lien_projet_2" target="_blank">Lien vers le projet 2</a>
+                    </div>
+                  </div>
+            
+                  <div class="project">
+                    <img src="images/projet3.jpg" alt="Projet 3">
+                    <h3>Projet 3</h3>
+                    <p>en cours de realisation..</p>
+                    <a href="#" class="btn" onclick="toggleDetails('project3')">En savoir plus</a>
+                    <div id="project3-details" class="project-details">
+                      <p>Détails supplémentaires sur le projet 3.</p>
+                      <a href="lien_projet_3" target="_blank">Lien vers le projet 3</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            
+              <script>
+                function toggleDetails(projectId) {
+                  const details = document.getElementById(`${projectId}-details`);
+                  details.style.display = details.style.display === 'none' ? 'block' : 'none';
+                }
+              </script>
+            
+        
+        
+       
+ 
+
+            <footer>
+              <p>&copy; 2023 Ghofrane Triki | Créatrice, Rêveuse et Exploratrice de la Vie</p>
+          </footer>
+</body>
+</html>
+
+

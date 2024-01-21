@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: transparent;
+    color: rgba(247, 244, 244, 0.949);
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f100;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(185, 86, 86, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: rgb(0, 0, 0);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ffc2f7;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+body {
+    overflow-x: hidden;
+    background: url('images/choix2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #000000;
+}
+
+.main-width {
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.ghofrane {
+    width: 100%;
+    height: 100%;
+    min-height: 95%;
+}
+
+header {
+    padding: 40px 0 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation {
+    width: 35px;
+    height: 24px;
+    right: 3%;
+    top: 60px;
+    z-index: 6;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    cursor: pointer;
+    display: none;
+}
+
+.navigation span:nth-child(2) {
+    margin: 10px 5px;
+}
+
+.nav-list li {
+    display: inline-block;
+}
+
+.nav-list li {
+    margin-Left: 14px;
+    font-size: 14px;
+    font-weight: 1000;
+}
+
+.nav-list a {
+    color: rgb(255, 255, 255);
+}
+
+.nav-list li:hover {
+    color: rgb(255, 140, 159);
+}
+
+.btn a {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid rgb(255, 140, 159);
+    padding: 9px 28px;
+    border-radius: 30px;
+    Line-height: 1.3;
+    color: rgb(255, 140, 159);
+    font-weight: 500;
+}
+
+.btn a:hover {
+    background-color: #ff66b2;
+    /* Couleur de fond au survol */
+    color: white;
+    /* Couleur du texte au survol */
+}
+/* Ajoutez ces styles pour le formulaire */
+.container {
+    
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    height: 100vh;
+    margin-right: 10%;
+}
+
+#contactForm {
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+#contactForm h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ed2cc6;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    color: #333;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid rgb(255, 140, 159);
+    padding: 9px 28px;
+    border-radius: 30px;
+    Line-height: 1.3;
+    color: rgb(255, 140, 159);
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #f3ebeb;
+    color:hotpink
+}
+

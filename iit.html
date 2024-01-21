@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web Personnel</title>
+    <link rel="stylesheet" type="text/css" href="styleaccuil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          color: #fff; /* Texte blanc */
+          margin: 20px;
+        }
+    
+        .content-container {
+          max-width: 600px;
+          margin: left;
+          padding: 20px;
+          background-color: #33333393; /* Fond gris foncé */
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        video {
+          width: 100%;
+          margin-top: 20px;
+        }
+    
+        form {
+          margin-top: 20px;
+        }
+    
+        label {
+          display: block;
+          margin-bottom: 8px;
+        }
+    
+        textarea {
+          width: 100%;
+          height: 100px;
+          resize: vertical;
+        }
+    
+        input[type="submit"] {
+          background-color: #4caf50;
+          color: #fff;
+          padding: 10px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+    
+        input[type="submit"]:hover {
+          background-color: #45a049;
+        }
+    
+        #avis-list {
+          margin-top: 20px;
+        }
+    
+        .avis-item {
+          border-bottom: 1px solid #ddd;
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+        }
+      </style>
+</head>
+<body class="temoig">
+    <section class="ghofrane">
+        <div class="main-width">
+            <header>
+                <div class="logo">
+                    <img width="50px"src="images/logo.jpg">
+                </div>
+                <nav>
+                    <div class="navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-list">
+                        <li><a href="acceuil.html" >accueil</a></li>
+                        <li><a href="à propos.html">à propos</a></li>
+                        <li><a><div class="dropdown">
+                            <button class="dropbtn"id="courante">portfolio</button>
+                            <div class="dropdown-content">
+                              <a href="mon parcours.html">mon parcours</a>
+                              <a href="compétences informatiques.html">compétences informatiques</a>
+                              <a href="stages réalisés.html">stages réalisés</a>
+                              <a href="evennements scientifiques.html">evennements scientifiques</a>
+                              <a href="matieres et projets.html">matieres et projets.html</a>
+                              <a href="iit.html"id="courante">"iit."</a>
+                            </div>
+                            </a>
+                          </div>
+                        </li>
+                        <li><a href="passions.html">passions</a></li>
+                        <li><a href="quiz.html">quiz</a></li>
+                        <li class="btn"><a href="contact.html">contact</a></li>
+
+
+                    </ul>
+                </nav>
+            </header>
+            
+          
+          
+            <h1 id="iittitle">Voyage Enchanté à l'IIT : Témoignage Inspirant</h1>
+
+            <div class="content-container">
+              <p id="temoi">
+                Dès le début, j'étais très excité à l'idée d'étudier dans cette faculté luxueuse et confortable. L'ambiance était parfaitement propice à l'apprentissage, et j'ai rapidement développé un attachement pour cette expérience. Les salles de classe étaient équipées de technologies de pointe, créant ainsi un environnement idéal pour acquérir des connaissances. Le corps enseignant se distinguait par son professionnalisme et son dévouement, ce qui a enrichi considérablement mon expérience d'apprentissage. Les installations sportives et les espaces de détente étaient des ajouts fantastiques, contribuant à rendre mon séjour inoubliable. Dans l'ensemble, mon passage dans cette faculté a été une expérience exceptionnelle, alliant excellence académique et un cadre de vie confortable et luxueux.
+              </p>
+          
+              <p id="vdtemoi">
+                De plus, je voudrais partager un moment mémorable de notre intégration. Vous pouvez visionner la vidéo ci-dessous pour revivre certains des moments forts de cette journée inoubliable :
+              </p>
+          
+              <video controls
+              poster="images/integrationimage.jpg">
+                <source src="images/integration.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+                
+              </video>
+            </div>
+            
+    <!-- Formulaire de commentaire -->
+    <form id="commentForm">
+        <label for="avis">Partagez votre avis :</label>
+        <textarea id="avis" name="avis" required></textarea>
+  
+        <label for="nom">Votre nom :</label>
+        <input type="text" id="nom" name="nom" required>
+  
+        <input type="submit" value="Poster mon avis">
+      </form>
+  
+      <!-- Liste des avis -->
+      <div id="avis-list"></div>
+    </div>
+  
+    <script>
+      // Chargement des avis depuis le stockage local lors de l'ouverture de la page
+      document.addEventListener('DOMContentLoaded', function () {
+        loadAvis();
+      });
+  
+      // Fonction pour sauvegarder un avis dans le stockage local
+      function saveAvis(avis) {
+        let avisList = JSON.parse(localStorage.getItem('avisList')) || [];
+        avisList.push(avis);
+        localStorage.setItem('avisList', JSON.stringify(avisList));
+        loadAvis();
+      }
+  
+      // Fonction pour charger les avis depuis le stockage local
+      function loadAvis() {
+        let avisList = JSON.parse(localStorage.getItem('avisList')) || [];
+        let avisListContainer = document.getElementById('avis-list');
+        avisListContainer.innerHTML = '';
+  
+        for (let i = 0; i < avisList.length; i++) {
+          let avisItem = document.createElement('div');
+          avisItem.classList.add('avis-item');
+          avisItem.textContent = avisList[i];
+          avisListContainer.appendChild(avisItem);
+        }
+      }
+  
+      // Événement de soumission du formulaire
+      document.getElementById('commentForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        let avisInput = document.getElementById('avis');
+        let nomInput = document.getElementById('nom');
+        let avis = nomInput.value + ': ' + avisInput.value;
+        saveAvis(avis);
+        avisInput.value = '';
+        nomInput.value = '';
+      });
+    </script>
+          
+        
+       
+ 
+
+          <footer>
+            <p>&copy; 2023 Ghofrane Triki | Créatrice, Rêveuse et Exploratrice de la Vie</p>
+        </footer>
+</body>
+</html>
+
+

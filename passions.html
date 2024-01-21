@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web Personnel</title>
+    <link rel="stylesheet" type="text/css" href="styleaccuil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="passions">
+    <header>
+        <div class="logo">
+            <img width="50px" src="images/logo.jpg" alt="Logo">
+        </div>
+        <nav>
+            <div class="navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="acceuil.html">Accueil</a></li>
+                <li><a href="à propos.html">À Propos</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Portfolio</button>
+                        <div class="dropdown-content">
+                            <a href="mon parcours.html">mon parcours</a>
+                            <a href="compétences informatiques.html">compétences informatiques</a>
+                            <a href="stages réalisés.html">stages réalisés</a>
+                            <a href="evennements scientifiques.html">evennements scientifiques</a>
+                            <a href="matieres et projets.html">matieres et projets.html</a>
+                            <a href="iit.html">"iit.html"</a>
+                          </div>
+                    </div>
+                </li>
+                <li><a href="passions.html" id="courante">Passions</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li class="btn"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="title">
+    <h1>"Voyage Artistique et Fitness: À la Découverte de Ghofrane Triki"</h1>
+    <img width="500px"src="images/p7.jpg">
+    <p>Exploratrice passionnée de l'art, de la danse et de la créativité</p>
+    </section>
+    <!-- Section Onglerie -->
+    <h1 class="h">onglerie</h1>
+    <section id="onglerie">
+        <h2>"You're never fully dressed without a good manicure." — Essie Weingarten</h2>
+        <p>Mon amour pour les ongles va au-delà de la simple esthétique. C'est une passion artistique où chaque ongle devient une toile unique, une expression de ma créativité sans limites. Chaque détail, chaque couleur, et chaque motif sont soigneusement choisis pour compléter votre style et mettre en valeur votre beauté naturelle.</p>
+        <section id="ongleri1">
+            <div id="d2">
+                <img  id="photo2"src="images/p2.jpg">
+                <img id="photo5" src="images/p5.jpg">
+           </div>
+           <div>
+           <img id="p6"width="350px" src="images/p6.jpg">
+           
+          
+           </div>
+           <div id="d1"> 
+           <img id="p1"src="images/p1.jpg">
+           <img id="photo4"src="images/p4.jpg">
+           </div>
+      
+   
+       </section>
+       <p>Rejoignez-moi dans cette aventure artistique des ongles,Suivez-moi sur instagramme pour découvrir mes créations uniques, des conseils de soins des ongles et bien plus encore.</p>
+       <a href="https://www.instagram.com/nails_artriki.17?igsh=NGVhN2U2NjQ0Yg==" target="_blank">
+        <button class="buttonong">nail.artriki.17</button>
+    </a>
+    
+   
+
+    </section>
+
+   <!-- Section Dessin -->
+   <h1 class="h">dessin</h1>
+<section id="dessin">
+    <h2> "Le dessin est le langage silencieux de la créativité, où chaque trait chuchote une histoire et chaque nuance révèle une émotion." </h2>
+    <p>La création artistique à travers le dessin est bien plus qu'une simple passion pour moi ; c'est une expression profonde de ma créativité et une façon de donner vie à mes idées. Chacune de mes œuvres représente un voyage artistique, une exploration de formes, de couleurs et de textures qui transcendent les simples lignes sur le papier.</p>
+
+    <div id="gallery">
+        <img width="600px" id="photo" src="" alt="Photo">
+        <br>
+        <button class="button" onclick="prevPhoto()">Précédent</button>
+        <button class="button" onclick="nextPhoto()">Suivant</button>
+    </div>
+    
+    <script>
+        const photos = [
+            'images/d1.jpg',
+            'images/d2.jpg',
+            'images/d3.jpg',
+            'images/d4.jpg',
+            'images/d5.jpg',
+            'images/d6.jpg',
+            'images/d7.jpg',
+            'images/d8.jpg'
+        ];
+    
+        let currentPhotoIndex = 0;
+        const photoElement = document.getElementById('photo');
+    
+        function showPhoto() {
+            photoElement.src = photos[currentPhotoIndex];
+        }
+    
+        function prevPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+            showPhoto();
+        }
+    
+        function nextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+            showPhoto();
+        }
+    
+        // Afficher la première photo lors du chargement de la page
+        showPhoto();
+    </script>
+    <p>Explorez mes créations artistiques et découvrez l'univers captivant du dessin en me suivant sur :</p>
+    <a href="https://www.instagram.com/t_g_drawing?igsh=NGVhN2U2NjQ0Yg==" target="_blank"><img src="images/insta.jpeg" width="50px"alt="Instagram"></a>
+<!--    
+<section id="dessin-gallery">
+        
+    <img src="images/dess1.jpg" alt="Artwork 1">
+    <img src="images/dess2.jpg" alt="Artwork 2">
+    <img src="images/dess3.jpg" alt="Artwork 3">
+    <img src="images/dess4.jpg" alt="Artwork 4">
+    <img src="images/dess5.jpg" alt="Artwork 5">
+    <img src="" alt="Artwork 6">
+</section>
+<section id="dessin-gallery">
+    
+    <img src="images/dess1.jpg" alt="Artwork 1">
+    <img src="images/dess2.jpg" alt="Artwork 2">
+    <img src="images/dess3.jpg" alt="Artwork 3">
+    <img src="images/dess4.jpg" alt="Artwork 4">
+    <img src="images/dess5.jpg" alt="Artwork 5">
+    <img src="" alt="Artwork 6">
+</section>-->
+   
+</section>
+
+
+
+    <!-- Section Théâtre -->
+    <section id="theatre">
+        
+        <!-- ... (votre code existant) ... -->
+        <h1 class="h">Théâtre</h1>
+        <h2>"Le théâtre, c'est le miroir où l'humanité se contemple, où les émotions se reflètent, et où les masques tombent pour révéler la vérité cachée derrière chaque rideau de la vie."</h2>
+        <p>Mon amour pour le théâtre s'est épanoui à travers une expérience inoubliable au Festival du Conte. La scène, pour moi, représente un espace sacré où je peux donner vie à des histoires captivantes et partager des émotions avec le public. Cette passion m'a conduit à m'impliquer activement dans le développement du Festival des Clubs de Conte à Sfax.</p>
+        <p>                Au cœur de ce projet ambitieux, l'objectif est de faire évoluer le festival en passant de 5 à 20 clubs représentés. Pour concrétiser cette vision, j'ai contribué à l'élargissement du réseau des clubs participants, à la formation et à l'encadrement des conteurs amateurs. Mon engagement s'est également manifesté à travers une campagne de communication renforcée, visant à promouvoir cette édition spéciale du festival. </p>
+        
+        <section id="cadree">
+            <div>
+                <img id="thp2"src="images/thp2.jpg">
+
+            </div>
+            <div>
+                <img id="thp3"src="images/thp3.jpg">
+
+            </div>
+        </section>
+        <section id="cadreee">
+            <div>
+                <img id="thp4"src="images/thp4.jpg">
+
+            </div>
+            <div>
+                <video class="thp5"width="500px"
+                 heigh="500" 
+                poster="images/th p1.jpg"
+                controls="controls"
+                loop="loop">
+                <source src="images/vidth.mp4"type="video/mp4"/>
+              </video>
+
+            </div>
+        </section>
+        <section id="cadre">
+         
+        </section>
+     
+   
+    </section>
+
+    <!-- Section Fitness -->
+    <section id="fitness">
+        <!-- ... (votre code existant) ... -->
+    </section>
+
+    
+    <!-- Section musical instruments -->
+    <section id="qualites">
+        <!-- ... (votre code existant) ... -->
+    </section>
+
+    <!-- hand mades -->
+    <section id="handmades">
+        <div class="skill" id="accessoires">
+            <h2>Accessoires</h2>
+            <img src="images/accessoires.png" alt="Accessoires">
+            <p>Je crée des accessoires uniques, chaque pièce raconte une histoire de style et d'élégance.</p>
+            <blockquote>"A women needs ropes and ropes of pearls "Coco Chanel, Vogue.</blockquote>
+            <a href="https://www.instagram.com/pearla.store.17?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">visitez mon petit projet daccessoires</a>
+        </div>
+        <div class="skill">
+            <h2>Pâte à modeler</h2>
+            <img src="images/salsal.jpg" alt="Pâte à modeler">
+            <p>Je crée des merveilles avec de la pâte à modeler. Chaque création raconte une histoire unique et colorée.</p>
+            <blockquote>"La créativité, c'est l'intelligence qui s'amuse." - Albert Einstein</blockquote>
+        </div>
+    
+        <div class="skill">
+            <h2>Dream Catchers</h2>
+            <img src="images/dream.jpg" alt="Dream Catcher">
+            <p>Les attrape-rêves que je réalise capturent les rêves et la magie. Chaque fil tissé raconte une histoire mystique.</p>
+            <blockquote>"Chaque rêveur a besoin d'un attrape-rêves." - Proverbe amérindien</blockquote>
+        </div>
+    
+       
+    </section>
+    
+
+  <!-- Section maquillage -->
+<section id="maquillage">
+    <h2>Maquillage Artistique</h2>
+    <p>En tant que passionné de maquillage artistique, j'exprime ma créativité à travers chaque coup de pinceau. Chaque œuvre est une toile sur laquelle je peux jouer avec les couleurs, les formes et les textures pour créer quelque chose de vraiment unique.</p>
+    
+    <img  width="400px"src="images/maq.jpg" alt="Maquillage artistique" class="maquillage-image">
+
+    <!-- ... (votre code existant) ... -->
+</section>
+
+
+    <!-- Pied de Page -->
+    <footer>
+        <p>&copy; 2023 Ghofrane Triki | Créatrice, Rêveuse et Exploratrice de la Vie</p>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Fonctions JavaScript (votre code existant)
+    </script>

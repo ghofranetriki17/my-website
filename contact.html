@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web Personnel</title>
+    <link rel="stylesheet" type="text/css" href="contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img width="50px" src="images/logo.jpg" alt="Logo">
+        </div>
+        <nav>
+            <div class="navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="acceuil.html">Accueil</a></li>
+                <li><a href="à propos.html">À Propos</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Portfolio</button>
+                        <div class="dropdown-content">
+                            <a href="mon parcours.html">mon parcours</a>
+                            <a href="compétences informatiques.html">compétences informatiques</a>
+                            <a href="stages réalisés.html">stages réalisés</a>
+                            <a href="evennements scientifiques.html">evennements scientifiques</a>
+                            <a href="matieres et projets.html">matieres et projets</a>
+                            <a href="iit.html">"iit"</a>
+                          </div>
+                    </div>
+                </li>
+                <li><a href="passions.html">Passions</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li class="btn"><a href="contact.html" id="courantee">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <form id="contactForm">
+            <h1>Contactez moi</h1>
+            <label for="family name">nom:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="name">prenom:</label>
+            <input type="text" id="name" name="name" required>
+
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="button" onclick="sendEmail()">Send Email</button>
+        </form>
+    </div>
+
+    <script>
+        function sendEmail() {
+            var name = document.getElementById("family name").value;
+            var name = document.getElementById("name").value;
+
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            // You can customize this part based on your requirements
+            var subject = "Contact Form Submission from " + name;
+            var body = "family name:" +"Name: " + name + "\nEmail: " + email + "\nMessage:\n" + message;
+
+            var mailtoLink = "mailto:ghoftrki@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+            // Open the default email client
+            window.location.href = mailtoLink;
+        }
+    </script>
+     <footer>
+        <p>&copy; 2023 Ghofrane Triki | Créatrice, Rêveuse et Exploratrice de la Vie</p>
+    </footer>
+</body>
+</html>
