@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
+    
 
 }
 body{background-color: #000000;}
@@ -65,10 +66,11 @@ body.quiz{
     background-color: #000000;
     }
     .main-width{
-    width: 1280px; max-width: 95%;
+    width: 1280px; max-width:100%;
     margin: 0 auto;
     padding:0px 20px;
 }
+
 body.propos{
     overflow-x: hidden;
   
@@ -191,7 +193,50 @@ section {
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.containercontact {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff73;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(228, 20, 214, 0.714);
+    text-align: center;
+}
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #0b0109;
+}
+#contactForm input{width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.buttonnn {
+    background-color: #ba0eaf;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
+.buttonnn:hover {
+    background-color: #57e045; /* Darker pink on hover */
+}
+
+#event-details span{color: #e21ab6;
+font-size: large;}
 .event {
     margin-bottom: 20px;
 }
@@ -332,6 +377,7 @@ margin-left: 43%;
     font-size: 24px; 
     margin-bottom: 10px; 
 }
+
 #title img {
     width: 400px; 
 }
@@ -391,37 +437,8 @@ margin-left: 43%;
 
 
 
-    #d1{
-        flex: 1;
-        margin-left: 5%;
-    }
-    #d2 {
-        flex: 1;
-        margin-right: 10%;
-    }
-#p6{margin-bottom: 20%;}
-    #p1, #photo4 {
-        margin-left: auto; /* Push to the extreme right */
-    }
-
-    #photo2 {
-        width: 400px;
-        margin-right: 0%;
-    }
-
-    #photo5 {
-        width: 300px;
-        margin-right: 0%;
-    }
-    #p1{
-        width: 500px;
-        padding-left: 0%;
-    }
-    #photo4 {
-        width: 350px;
-        padding-left: 0%;
-        margin-left:15%
-    }
+   
+    
 
 #ongleri1{
     display: flex;
@@ -447,7 +464,7 @@ margin-left: 43%;
    
 
    /* Style for Image Gallery */
- /*  #dessin-gallery {
+  #dessin-gallery {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -459,7 +476,7 @@ margin-left: 43%;
     border: 2px solid #ddd; 
     border-radius: 5px;
     margin-right: 10px;
-}*/
+}
 .button { 
     display: inline-block;
     background: transparent;
@@ -494,7 +511,7 @@ background-color: #e21ab6;}
 #cadree{display:flex;
     justify-content: space-between;
     margin-top: 5%;
-    margin-right: 10%;
+    margin-right: 5%;
 }
 #thp4{
     width:500px;
@@ -510,7 +527,7 @@ background-color: #e21ab6;}
 #cadreee{display:flex;
     justify-content: space-between;
     margin-top: 5%;
-    margin-right: 10%;
+    margin-right: 5%;
     margin-bottom: 10%;
 }
 #handmades {

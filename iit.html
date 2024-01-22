@@ -131,7 +131,6 @@
               </video>
             </div>
             
-    <!-- Formulaire de commentaire -->
     <form id="commentForm">
         <label for="avis">Partagez votre avis :</label>
         <textarea id="avis" name="avis" required></textarea>
@@ -174,7 +173,6 @@
         }
       }
   
-      // Événement de soumission du formulaire
       document.getElementById('commentForm').addEventListener('submit', function (event) {
         event.preventDefault();
         let avisInput = document.getElementById('avis');
