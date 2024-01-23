@@ -78,13 +78,7 @@
                     <img width="50px"src="images/logo.jpg">
                 </div>
                 <nav>
-                    <div class="navigation">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+              
                     <ul class="nav-list">
                         <li><a href="acceuil.html" >accueil</a></li>
                         <li><a href="à propos.html">à propos</a></li>
@@ -132,10 +126,10 @@
             </div>
             
     <form id="commentForm">
-        <label for="avis">Partagez votre avis :</label>
+        <label class="av" for="avis">Partagez votre avis :</label>
         <textarea id="avis" name="avis" required></textarea>
   
-        <label for="nom">Votre nom :</label>
+        <label class="av"for="nom">Votre nom :</label>
         <input type="text" id="nom" name="nom" required>
   
         <input type="submit" value="Poster mon avis">
@@ -144,8 +138,9 @@
       <!-- Liste des avis -->
       <div id="avis-list"></div>
     </div>
-  
-    <script>
+    <!--j'ai eu recours au chat dans cette partie-->
+
+   <!-- <script>
       // Chargement des avis depuis le stockage local lors de l'ouverture de la page
       document.addEventListener('DOMContentLoaded', function () {
         loadAvis();
@@ -182,7 +177,7 @@
         avisInput.value = '';
         nomInput.value = '';
       });
-    </script>
+    </script>-->
           
         
        
