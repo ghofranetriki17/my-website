@@ -1,4 +1,4 @@
- portfolio website by me:
+ portfolio website by me using html css and js:
 home: ![Capture d'écran 2024-01-21 203209](https://github.com/ghofranetriki17/my-website/assets/157300445/3016e057-e143-45b5-ad84-057085cb6f10)
 about:![page2](https://github.com/ghofranetriki17/my-website/assets/157300445/e84f445d-7796-4cb9-b1a9-0a2f57190454)
 portfolio:
