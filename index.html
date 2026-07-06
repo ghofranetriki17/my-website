@@ -367,6 +367,34 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(36, 86, 214, 0.34);
+      box-shadow: 0 18px 45px rgba(13, 18, 32, 0.12);
+    }
+
+    .project-detail-button {
+      align-self: flex-start;
+      margin-top: auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .project-detail-button:hover,
+    .project-detail-button:focus-visible {
+      color: var(--blue);
+      outline: none;
     }
 
     .project-top {
@@ -522,6 +550,113 @@
       font-weight: 800;
     }
 
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(13, 18, 32, 0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .modal-backdrop[hidden] {
+      display: none;
+    }
+
+    .project-modal {
+      width: min(860px, 100%);
+      max-height: min(86vh, 820px);
+      overflow: auto;
+      position: relative;
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      background: var(--paper-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .modal-close:hover,
+    .modal-close:focus-visible {
+      border-color: rgba(36, 86, 214, 0.34);
+      outline: none;
+    }
+
+    .project-modal h2 {
+      margin: 6px 44px 0 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .project-modal h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .project-modal p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .modal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+
+    .modal-meta span {
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: rgba(36, 86, 214, 0.10);
+      color: #173c9a;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.86fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .modal-panel {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.64);
+    }
+
+    .modal-panel ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
     @media (max-width: 900px) {
       .nav { align-items: flex-start; }
       .nav-links a { padding: 8px; }
@@ -530,6 +665,7 @@
       .skills-grid,
       .about-grid,
       .section-head,
+      .modal-grid,
       .contact-panel {
         grid-template-columns: 1fr;
       }
@@ -554,6 +690,10 @@
       section { padding: 58px 0; }
       .button { width: 100%; }
       .hero-actions { width: 100%; }
+      .project-modal {
+        max-height: 90vh;
+        padding: 22px;
+      }
     }
   </style>
 </head>
@@ -634,7 +774,7 @@
         </p>
       </div>
       <div class="project-grid">
-        <article class="project-card">
+        <article class="project-card" data-project="digimart">
           <div class="project-top">
             <h3>DigiMart SaaS Platform</h3>
             <span class="tag">PFE</span>
@@ -643,8 +783,9 @@
           <div class="chips">
             <span class="chip">Spring Boot 4</span><span class="chip">React 19</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span>
           </div>
+          <button class="project-detail-button" type="button">View details</button>
         </article>
-        <article class="project-card">
+        <article class="project-card" data-project="fimochic-bi">
           <div class="project-top">
             <h3>Fimochic BI System</h3>
             <span class="tag">BI</span>
@@ -653,8 +794,9 @@
           <div class="chips">
             <span class="chip">SQL Server</span><span class="chip">SSIS</span><span class="chip">SSAS</span><span class="chip">Power BI</span>
           </div>
+          <button class="project-detail-button" type="button">View details</button>
         </article>
-        <article class="project-card">
+        <article class="project-card" data-project="gym">
           <div class="project-top">
             <h3>Gym Mobile App</h3>
             <span class="tag">Mobile</span>
@@ -663,8 +805,9 @@
           <div class="chips">
             <span class="chip">React Native</span><span class="chip">Laravel</span><span class="chip">MySQL</span><span class="chip">REST</span>
           </div>
+          <button class="project-detail-button" type="button">View details</button>
         </article>
-        <article class="project-card">
+        <article class="project-card" data-project="fimochic-web">
           <div class="project-top">
             <h3>Fimochic WebApp Redesign</h3>
             <span class="tag">Full-stack</span>
@@ -673,8 +816,9 @@
           <div class="chips">
             <span class="chip">React</span><span class="chip">.NET Core</span><span class="chip">REST API</span>
           </div>
+          <button class="project-detail-button" type="button">View details</button>
         </article>
-        <article class="project-card">
+        <article class="project-card" data-project="training-center">
           <div class="project-top">
             <h3>Training Center Management</h3>
             <span class="tag">Web</span>
@@ -683,8 +827,9 @@
           <div class="chips">
             <span class="chip">Spring Boot</span><span class="chip">Angular</span><span class="chip">REST</span>
           </div>
+          <button class="project-detail-button" type="button">View details</button>
         </article>
-        <article class="project-card">
+        <article class="project-card" data-project="git-control">
           <div class="project-top">
             <h3>Git-like Version Control</h3>
             <span class="tag">Systems</span>
@@ -693,6 +838,7 @@
           <div class="chips">
             <span class="chip">C</span><span class="chip">Bash</span><span class="chip">SHA-256</span><span class="chip">Linux</span>
           </div>
+          <button class="project-detail-button" type="button">View details</button>
         </article>
       </div>
     </section>
@@ -820,5 +966,174 @@
     <span>Ghofrane Triki. Portfolio for GitHub Pages.</span>
     <a class="back-to-top" href="#top">Back to top</a>
   </footer>
+
+  <div class="modal-backdrop" id="project-modal" hidden>
+    <section class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <button class="modal-close" type="button" aria-label="Close project details">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <p class="section-label" id="project-modal-label"></p>
+      <h2 id="project-modal-title">Project details</h2>
+      <p id="project-modal-summary"></p>
+      <div class="modal-meta" id="project-modal-meta"></div>
+      <div class="modal-grid">
+        <div class="modal-panel">
+          <h3>What I built</h3>
+          <ul id="project-modal-highlights"></ul>
+        </div>
+        <div class="modal-panel">
+          <h3>Technical stack</h3>
+          <div class="chips" id="project-modal-stack"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const projectDetails = {
+      digimart: {
+        label: "Capstone project",
+        title: "DigiMart SaaS Platform",
+        summary: "A production-oriented multi-tenant e-commerce SaaS built as my final engineering project. It covers the seller dashboard, public storefronts, POS, catalog, orders, stock, themes, subscriptions, wallet and deployment.",
+        meta: ["Java 21", "Spring Boot 4", "React 19", "PostgreSQL", "Docker", "OVH VPS"],
+        highlights: [
+          "Built a modular backend with Clean Architecture across domain, application, infrastructure and api modules.",
+          "Implemented tenant isolation, RBAC, opaque Bearer tokens, BCrypt passwords, audit logs and public rate limiting.",
+          "Delivered catalog, stock, order, POS, storefront, promotion, theme, wallet and subscription workflows.",
+          "Added CI/CD with GitHub Actions, GHCR images, Docker Compose, NGINX, smoke checks and rollback-minded deployment."
+        ],
+        stack: ["Spring Boot", "Spring Security", "JPA", "Flyway", "React", "Vite", "Playwright", "Testcontainers", "Docker", "NGINX"]
+      },
+      "fimochic-bi": {
+        label: "Business intelligence",
+        title: "Fimochic BI System",
+        summary: "A BI decision-support project for an e-commerce activity, focused on transforming sales data into indicators that help understand revenue, products and customer behavior.",
+        meta: ["BI", "ETL", "OLAP", "Dashboards", "KPIs"],
+        highlights: [
+          "Modeled analytical data around products, sales, customers and business performance indicators.",
+          "Prepared ETL flows to extract, clean and load operational data into a reporting structure.",
+          "Built OLAP cubes and dashboard views for revenue, product and conversion analysis.",
+          "Focused on making business data easier to explore for non-technical decision makers."
+        ],
+        stack: ["SQL Server", "SSIS", "SSAS", "Power BI", "SQL", "Data modeling"]
+      },
+      gym: {
+        label: "Mobile full-stack",
+        title: "Gym Mobile App",
+        summary: "A mobile management app for gym workflows, connecting a React Native frontend to a Laravel backend with REST APIs and a relational MySQL database.",
+        meta: ["React Native", "Laravel", "MySQL", "REST API"],
+        highlights: [
+          "Developed mobile screens for users, programs, classes and gym-management actions.",
+          "Connected the app to backend endpoints for authentication and data operations.",
+          "Worked with a Laravel API and MySQL schema to persist gym data cleanly.",
+          "Handled practical mobile concerns such as API configuration, forms and user flow validation."
+        ],
+        stack: ["React Native", "Expo", "Laravel", "PHP", "MySQL", "REST", "Postman"]
+      },
+      "fimochic-web": {
+        label: "E-commerce redesign",
+        title: "Fimochic WebApp Redesign",
+        summary: "A redesign of an e-commerce experience using a decoupled frontend/backend approach, with a responsive React interface and REST API integration.",
+        meta: ["E-commerce", "Responsive UI", ".NET Core", "React"],
+        highlights: [
+          "Reworked storefront and catalog screens into a cleaner, responsive user interface.",
+          "Connected frontend components to backend REST endpoints for product and sales flows.",
+          "Improved the separation between interface concerns and backend business data.",
+          "Practiced full-stack debugging across browser UI, API calls and backend responses."
+        ],
+        stack: ["React", "JavaScript", ".NET Core", "REST API", "HTML", "CSS"]
+      },
+      "training-center": {
+        label: "Web application",
+        title: "Training Center Management",
+        summary: "A training-center management project using a layered backend and Angular frontend, focused on common business workflows and REST-based integration.",
+        meta: ["Spring Boot", "Angular", "REST", "Layered architecture"],
+        highlights: [
+          "Implemented backend endpoints for managing training-center data and operations.",
+          "Built Angular screens that consume REST APIs and present structured management views.",
+          "Applied layered architecture principles to separate controllers, services and persistence.",
+          "Worked through server-side and client-side rendering concepts during implementation."
+        ],
+        stack: ["Spring Boot", "Angular", "TypeScript", "REST", "Java", "SQL"]
+      },
+      "git-control": {
+        label: "Systems project",
+        title: "Git-like Version Control",
+        summary: "A low-level Linux/C project that reproduces core version-control ideas through file snapshots, hashing and recursive tree tracking.",
+        meta: ["C", "Linux", "SHA-256", "File system"],
+        highlights: [
+          "Implemented snapshot logic to track file versions and repository states.",
+          "Used SHA-256 hashing to identify file contents and detect changes.",
+          "Worked with linked lists and recursive traversal for file-tree operations.",
+          "Strengthened understanding of how developer tools can be built close to the operating system."
+        ],
+        stack: ["C", "Bash", "Linux", "SHA-256", "Data structures", "File I/O"]
+      }
+    };
+
+    const modal = document.getElementById("project-modal");
+    const modalClose = modal.querySelector(".modal-close");
+    const modalLabel = document.getElementById("project-modal-label");
+    const modalTitle = document.getElementById("project-modal-title");
+    const modalSummary = document.getElementById("project-modal-summary");
+    const modalMeta = document.getElementById("project-modal-meta");
+    const modalHighlights = document.getElementById("project-modal-highlights");
+    const modalStack = document.getElementById("project-modal-stack");
+    let lastFocusedElement = null;
+
+    function renderTextList(container, values, elementName, className) {
+      container.textContent = "";
+      values.forEach((value) => {
+        const element = document.createElement(elementName);
+        element.textContent = value;
+        if (className) {
+          element.className = className;
+        }
+        container.appendChild(element);
+      });
+    }
+
+    function openProjectModal(projectKey) {
+      const project = projectDetails[projectKey];
+      if (!project) {
+        return;
+      }
+
+      lastFocusedElement = document.activeElement;
+      modalLabel.textContent = project.label;
+      modalTitle.textContent = project.title;
+      modalSummary.textContent = project.summary;
+      renderTextList(modalMeta, project.meta, "span");
+      renderTextList(modalHighlights, project.highlights, "li");
+      renderTextList(modalStack, project.stack, "span", "chip");
+      modal.hidden = false;
+      document.body.classList.add("modal-open");
+      modalClose.focus();
+    }
+
+    function closeProjectModal() {
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    document.querySelectorAll(".project-card[data-project]").forEach((card) => {
+      card.addEventListener("click", () => openProjectModal(card.dataset.project));
+    });
+
+    modalClose.addEventListener("click", closeProjectModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeProjectModal();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) {
+        closeProjectModal();
+      }
+    });
+  </script>
 </body>
 </html>
