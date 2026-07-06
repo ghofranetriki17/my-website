@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Ghofrane Triki, full-stack software engineer specializing in React, Spring Boot, Laravel, BI, security and DevOps.">
+  <meta name="theme-color" content="#0d1220">
+  <title>Ghofrane Triki | Full-Stack Software Engineer</title>
+  <style>
+    :root {
+      --ink: #0d1220;
+      --ink-soft: #1b253a;
+      --paper: #f7f4ee;
+      --paper-strong: #fffaf0;
+      --muted: #667085;
+      --line: rgba(13, 18, 32, 0.14);
+      --blue: #2456d6;
+      --red: #bf2434;
+      --gold: #c99a2e;
+      --green: #13795b;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(13, 18, 32, 0.16);
+      --radius: 8px;
+      color-scheme: light;
+      scroll-behavior: smooth;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+      overflow-wrap: break-word;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: -60px;
+      z-index: 1000;
+      background: var(--ink);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 6px;
+      transition: top 160ms ease;
+    }
+
+    .skip-link:focus { top: 16px; }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      padding: 14px 18px;
+      pointer-events: none;
+    }
+
+    .nav {
+      width: min(1120px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 12px 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(13, 18, 32, 0.62);
+      backdrop-filter: blur(18px);
+      color: var(--white);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.18);
+      pointer-events: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--blue), var(--red));
+      color: var(--white);
+      font-size: 14px;
+      letter-spacing: 0;
+      flex: 0 0 auto;
+    }
+
+    .brand span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.82);
+      padding: 9px 10px;
+      border-radius: 6px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.12);
+      outline: none;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      isolation: isolate;
+      background: var(--ink);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(13, 18, 32, 0.90) 0%, rgba(13, 18, 32, 0.76) 36%, rgba(13, 18, 32, 0.42) 64%, rgba(13, 18, 32, 0.18) 100%),
+        linear-gradient(0deg, rgba(13, 18, 32, 0.86) 0%, rgba(13, 18, 32, 0.10) 38%),
+        url("assets/ghofrane-triki-profile.jpeg") center 30% / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 12px;
+      z-index: -1;
+      background: linear-gradient(90deg, var(--blue), var(--gold), var(--red));
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 128px 0 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 20px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #28d17c;
+      border-radius: 99px;
+      box-shadow: 0 0 0 5px rgba(40, 209, 124, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(42px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-subtitle {
+      max-width: 720px;
+      margin: 24px 0 0;
+      font-size: clamp(18px, 2.4vw, 28px);
+      line-height: 1.35;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button.primary {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.26);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.20);
+      margin-top: 46px;
+      max-width: 900px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .metric {
+      padding: 18px;
+      background: rgba(13, 18, 32, 0.42);
+      backdrop-filter: blur(10px);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 82px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      margin: 0 0 10px;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel,
+    .project-card,
+    .timeline-item,
+    .skill-block,
+    .contact-panel {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 35px rgba(13, 18, 32, 0.06);
+    }
+
+    .panel { padding: 24px; }
+
+    .panel p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quick-facts li {
+      display: grid;
+      gap: 6px;
+      padding: 16px;
+      border: 1px solid rgba(13, 18, 32, 0.10);
+      border-radius: 6px;
+      background: var(--paper-strong);
+    }
+
+    .quick-facts strong { font-size: 14px; }
+    .quick-facts span { color: var(--muted); line-height: 1.45; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      padding: 20px;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .project-card h3,
+    .skill-block h3,
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: rgba(36, 86, 214, 0.10);
+      color: #173c9a;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+      flex: 1;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: rgba(13, 18, 32, 0.06);
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-block {
+      padding: 20px;
+    }
+
+    .skill-block ul {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .skill-block li {
+      color: var(--muted);
+      line-height: 1.45;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .skill-block li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68em;
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: var(--gold);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .timeline-date {
+      color: var(--red);
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .timeline-item p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .contact-panel {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 { color: var(--white); }
+
+    .contact-panel p {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.62;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    footer {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 30px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .back-to-top {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .nav { align-items: flex-start; }
+      .nav-links a { padding: 8px; }
+      .metrics,
+      .project-grid,
+      .skills-grid,
+      .about-grid,
+      .section-head,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+      .contact-links { justify-content: flex-start; }
+      .timeline-item { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 10px; }
+      .nav-links { display: none; }
+      .hero { min-height: 86vh; }
+      .hero-inner {
+        width: calc(100vw - 36px);
+        max-width: calc(100vw - 36px);
+        padding-top: 104px;
+      }
+      .hero-subtitle {
+        max-width: 320px;
+        font-size: 17px;
+      }
+      .metrics { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .button { width: 100%; }
+      .hero-actions { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" aria-label="Primary navigation">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Ghofrane Triki home">
+        <span class="brand-mark">GT</span>
+        <span>Ghofrane Triki</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="top" class="hero" aria-label="Portfolio hero">
+    <div class="hero-inner">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to junior full-stack roles</p>
+      <h1>Ghofrane Triki</h1>
+      <p class="hero-subtitle">
+        Full-stack software engineer building secure SaaS platforms, thoughtful frontends, reliable APIs and data-driven systems.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="assets/Ghofrane_Triki_CV.pdf" download>Download CV</a>
+        <a class="button secondary" href="mailto:ghofrane.triki.17@gmail.com">Email me</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/ghofrane-triki" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="button secondary" href="https://github.com/ghofranetriki17" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <div class="metrics">
+        <div class="metric"><strong>2026</strong><span>Computer Engineering graduate, Highest Honors</span></div>
+        <div class="metric"><strong>19</strong><span>business modules delivered in DigiMart</span></div>
+        <div class="metric"><strong>133</strong><span>automated tests authored across stack</span></div>
+        <div class="metric"><strong>Full</strong><span>frontend, backend, BI, security and DevOps mindset</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <p class="section-label">About</p>
+          <h2>Engineer with product sense and delivery discipline.</h2>
+        </div>
+        <p>
+          I enjoy building complete systems: user interfaces, APIs, databases, security controls, tests and deployment pipelines. My strongest project is DigiMart, a multi-tenant SaaS e-commerce platform built end-to-end.
+        </p>
+      </div>
+      <div class="about-grid">
+        <article class="panel">
+          <p>
+            I am a Computer Engineering graduate from IIT Sfax, specialized in Software Engineering, Business Intelligence and Information Systems Security. I have practical experience across React, Spring Boot, Laravel, .NET Core, PostgreSQL, MySQL, Docker, NGINX, GitHub Actions, Power BI and machine learning fundamentals.
+          </p>
+        </article>
+        <ul class="quick-facts">
+          <li><strong>Location</strong><span>Sfax, Tunisia. Open to Sfax, Tunisia and remote opportunities.</span></li>
+          <li><strong>Languages</strong><span>Arabic native, French fluent, English fluent, Italian intermediate.</span></li>
+          <li><strong>Focus</strong><span>Full-stack development, SaaS architecture, BI dashboards, secure APIs and DevOps.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Selected work</p>
+          <h2>Projects that cover real engineering surfaces.</h2>
+        </div>
+        <p>
+          These projects show my ability to move beyond isolated features and reason about complete product flows, security, data and deployment.
+        </p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-top">
+            <h3>DigiMart SaaS Platform</h3>
+            <span class="tag">PFE</span>
+          </div>
+          <p>Multi-tenant e-commerce SaaS with catalog, stock, orders, POS, storefront themes, wallet, subscriptions, RBAC, audit logs, tests and VPS deployment.</p>
+          <div class="chips">
+            <span class="chip">Spring Boot 4</span><span class="chip">React 19</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-top">
+            <h3>Fimochic BI System</h3>
+            <span class="tag">BI</span>
+          </div>
+          <p>Decision support system for e-commerce sales with ETL pipelines, OLAP cubes and Power BI dashboards for revenue, conversion and product KPIs.</p>
+          <div class="chips">
+            <span class="chip">SQL Server</span><span class="chip">SSIS</span><span class="chip">SSAS</span><span class="chip">Power BI</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-top">
+            <h3>Gym Mobile App</h3>
+            <span class="tag">Mobile</span>
+          </div>
+          <p>Full-stack mobile app for gym management with training programs, classes, user accounts and REST API integration.</p>
+          <div class="chips">
+            <span class="chip">React Native</span><span class="chip">Laravel</span><span class="chip">MySQL</span><span class="chip">REST</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-top">
+            <h3>Fimochic WebApp Redesign</h3>
+            <span class="tag">Full-stack</span>
+          </div>
+          <p>Modern decoupled e-commerce redesign with responsive React frontend and REST API backend.</p>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">.NET Core</span><span class="chip">REST API</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-top">
+            <h3>Training Center Management</h3>
+            <span class="tag">Web</span>
+          </div>
+          <p>Layered backend and Angular frontend for training center management, supporting server-side and client-side rendering concepts.</p>
+          <div class="chips">
+            <span class="chip">Spring Boot</span><span class="chip">Angular</span><span class="chip">REST</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-top">
+            <h3>Git-like Version Control</h3>
+            <span class="tag">Systems</span>
+          </div>
+          <p>Low-level C/Linux project implementing snapshots, SHA-256 hashing, linked lists and recursive file tree tracking.</p>
+          <div class="chips">
+            <span class="chip">C</span><span class="chip">Bash</span><span class="chip">SHA-256</span><span class="chip">Linux</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Technical stack</p>
+          <h2>Comfortable across the product lifecycle.</h2>
+        </div>
+        <p>
+          My stack is broad, but the common thread is structured delivery: readable code, secure boundaries, tested behavior and production awareness.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-block">
+          <h3>Frontend</h3>
+          <ul>
+            <li>React 19, Vite, JavaScript, JSX, Angular</li>
+            <li>HTML5, CSS3, Bootstrap, Atomic Design</li>
+            <li>Vitest, Testing Library, Playwright</li>
+          </ul>
+        </article>
+        <article class="skill-block">
+          <h3>Backend</h3>
+          <ul>
+            <li>Java 21, Spring Boot 4, Spring Security</li>
+            <li>Laravel, PHP, .NET Core, REST APIs</li>
+            <li>Clean Architecture, Maven modules, Flyway</li>
+          </ul>
+        </article>
+        <article class="skill-block">
+          <h3>Data</h3>
+          <ul>
+            <li>PostgreSQL, MySQL, Oracle, Firestore</li>
+            <li>SQL Server, SSIS, SSAS, Power BI</li>
+            <li>Python, Pandas, Scikit-learn, data mining</li>
+          </ul>
+        </article>
+        <article class="skill-block">
+          <h3>DevOps</h3>
+          <ul>
+            <li>Docker, Docker Compose, NGINX</li>
+            <li>GitHub Actions, GHCR, Ubuntu VPS</li>
+            <li>Smoke checks, rollback mindset, Linux basics</li>
+          </ul>
+        </article>
+        <article class="skill-block">
+          <h3>Security</h3>
+          <ul>
+            <li>RBAC, opaque Bearer tokens, BCrypt, SHA-256</li>
+            <li>OWASP Top 10, input validation, rate limiting</li>
+            <li>Audit logging and tenant isolation</li>
+          </ul>
+        </article>
+        <article class="skill-block">
+          <h3>Mobile and tools</h3>
+          <ul>
+            <li>React Native, Flutter, REST integration</li>
+            <li>Git, GitHub, Postman, Figma, Jira</li>
+            <li>Odoo ERP, Firebase, Meta Spark Studio</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Experience</p>
+          <h2>Project-driven experience with professional delivery habits.</h2>
+        </div>
+        <p>
+          I have worked through internships, academic projects and a capstone project that required real deployment, testing and security decisions.
+        </p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-date">Jan 2026 - Jun 2026</div>
+          <div>
+            <h3>Full-Stack Software Engineer, DigiLab Solutions</h3>
+            <p>Designed and developed DigiMart, a production-grade multi-tenant SaaS e-commerce platform with Clean Architecture, React frontend, PostgreSQL, tests and CI/CD deployment on OVH VPS.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Feb 2025 - Jun 2025</div>
+          <div>
+            <h3>Mobile Developer Intern, Exadev Company</h3>
+            <p>Developed a full-stack gym management mobile application with React Native, Laravel, MySQL and RESTful API integration.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Feb 2025 - Jun 2025</div>
+          <div>
+            <h3>Full-Stack Developer Intern, Eventizer</h3>
+            <p>Built NexiQuest, an online education platform with content management capabilities using Laravel, Blade and MySQL.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">Feb 2024 - Jun 2024</div>
+          <div>
+            <h3>Web Developer Intern, Exadev Company</h3>
+            <p>Built Fimochic e-commerce features including product catalog, sales and inventory management, with JavaScript interactions and Meta Spark Studio AR filters.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-panel">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>Let's build something useful.</h2>
+          <p>I am looking for junior full-stack, backend, frontend, BI/data or QA automation opportunities in Tunisia or remote.</p>
+        </div>
+        <div class="contact-links">
+          <a class="button primary" href="mailto:ghofrane.triki.17@gmail.com">ghofrane.triki.17@gmail.com</a>
+          <a class="button secondary" href="tel:+21625141113">+216&nbsp;25&nbsp;141&nbsp;113</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Ghofrane Triki. Portfolio for GitHub Pages.</span>
+    <a class="back-to-top" href="#top">Back to top</a>
+  </footer>
+</body>
+</html>
